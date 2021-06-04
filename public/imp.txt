@@ -1,0 +1,7 @@
+https://api.themoviedb.org/3/genre/movie/list?api_key=f274625ee8526fcb3150182ed7668864
+
+
+
+
+https://api.themoviedb.org/3/discover/movie?api_key=f274625ee8526fcb3150182ed7668864&with_genre=16&page=1
+https://api.themoviedb.org/3/discover/movie?api_key=f274625ee8526fcb3150182ed7668864&with_genres=16&page=1
