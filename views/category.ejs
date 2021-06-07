@@ -52,7 +52,7 @@
     </div>
     <div class="section container ">
         <div class="cat-nm">
-            <h1 style=" font-weight: 900;">&nbsp;&nbsp;&nbsp;<%=locals.q%></h1>
+            <h1 style=" font-weight: 900;">&nbsp;&nbsp;&nbsp; <%=locals.q%></h1>
             <p style="font-weight: 300;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Search</p>
         </div>
         <%if(locals.success==0) {%>
@@ -210,7 +210,7 @@
     </div>
       <div class="overlay-search-content">
          
-      <form action="/search" class="  " method="GET">
+      <form action="/search" class="  " method="GET" autocomplete="off">
       <input type="text" placeholder="Type here .....">
       <button type="submit">
         <i class="bx bx-search" style="font-size:25px; color: white;"></i>
