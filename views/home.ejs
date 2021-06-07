@@ -8,19 +8,16 @@
     <title>
         Flix
     </title>
-    <link rel = "icon" href = 
-    "./images/logo.png" 
-            type = "image/x-icon">
-    <!-- GOOGLE FONTS -->
+    <link rel = "icon" href =  "./images/logo.png" type = "image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
-    <!-- OWL CAROUSEL -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
-    <!-- BOX ICONS -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <!-- APP CSS -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="./style/grid.css">
     <link rel="stylesheet" href="./style/app.css">
+    <link rel="stylesheet" href="./style/owl.css">
 </head>
 
 <body>
@@ -39,8 +36,8 @@
                     <li><a href="#">Series</a></li>
                     <li><a href="#">About</a></li>
                     <li>
-                        <a href="#" class="btn btn-hover">
-                            <span>Sign in</span>
+                        <a href="#" class="btn full-page-srch">
+                            <i class='bx bx-search'></i>
                         </a>
                     </li>
                 </ul>
@@ -48,11 +45,11 @@
                 <div class="hamburger-menu" id="hamburger-menu">
                     <div class="hamburger"></div>
                 </div>
+                
             </div>
         </div>
     </div>
     <!-- END NAV -->
-
     <!-- HERO SECTION -->
     <div class="hero-section">
         <!-- HERO SLIDE -->
@@ -278,7 +275,12 @@
                 <% locals.popular_dt.forEach(function(mv){%>
                     <% var link = '/watch/' + mv.id %>
                 <a href='<%=link%>' class="movie-item">
+                    <%if(mv.poster_path == null){%>
+                    
+                        <%var img ="./images/No_image_small.jpg" %>
+                        <% } else{ %>
                     <% var img = 'https://www.themoviedb.org/t/p/w220_and_h330_face/'+ mv.poster_path%>
+                    <%}%>
 
                     <img src='<%=img%>' alt="">
                     <div class="movie-item-content">
@@ -323,7 +325,12 @@
                 <% locals.action_dt.forEach(function(mv){%>
                     <% var link = '/watch/' + mv.id %>
                 <a href='<%=link%>' class="movie-item">
+                    <%if(mv.poster_path == null){%>
+                    
+                        <%var img ="./images/No_image_small.jpg" %>
+                        <% } else{ %>
                     <% var img = 'https://www.themoviedb.org/t/p/w220_and_h330_face/'+ mv.poster_path%>
+                    <%}%>
 
                     <img src='<%=img%>' alt="">
                     <div class="movie-item-content">
@@ -366,7 +373,12 @@
                 <% locals.scifi_dt.forEach(function(mv){%>
                     <% var link = '/watch/' + mv.id %>
                 <a href='<%=link%>' class="movie-item">
+                    <%if(mv.poster_path == null){%>
+                    
+                        <%var img ="./images/No_image_small.jpg" %>
+                        <% } else{ %>
                     <% var img = 'https://www.themoviedb.org/t/p/w220_and_h330_face/'+ mv.poster_path%>
+                    <%}%>
 
                     <img src='<%=img%>' alt="">
                     <div class="movie-item-content">
@@ -408,7 +420,12 @@
                 <% locals.anime_dt.forEach(function(mv){%>
                     <% var link = '/watch/' + mv.id %>
                 <a href='<%=link%>' class="movie-item">
+                    <%if(mv.poster_path == null){%>
+                    
+                        <%var img ="./images/No_image_small.jpg" %>
+                        <% } else{ %>
                     <% var img = 'https://www.themoviedb.org/t/p/w220_and_h330_face/'+ mv.poster_path%>
+                    <%}%>
 
                     <img src='<%=img%>' alt="">
                     <div class="movie-item-content">
@@ -452,7 +469,12 @@
                 <% locals.comedy_dt.forEach(function(mv){%>
                     <% var link = '/watch/' + mv.id %>
                 <a href='<%=link%>' class="movie-item">
+                    <%if(mv.poster_path == null){%>
+                    
+                        <%var img ="./images/No_image_small.jpg" %>
+                        <% } else{ %>
                     <% var img = 'https://www.themoviedb.org/t/p/w220_and_h330_face/'+ mv.poster_path%>
+                    <%}%>
 
                     <img src='<%=img%>' alt="">
                     <div class="movie-item-content">
@@ -494,7 +516,12 @@
                 <% locals.doc_dt.forEach(function(mv){%>
                     <% var link = '/watch/' + mv.id %>
                 <a href='<%=link%>' class="movie-item">
+                    <%if(mv.poster_path == null){%>
+                    
+                        <%var img ="./images/No_image_small.jpg" %>
+                        <% } else{ %>
                     <% var img = 'https://www.themoviedb.org/t/p/w220_and_h330_face/'+ mv.poster_path%>
+                    <%}%>
 
                     <img src='<%=img%>' alt="">
                     <div class="movie-item-content">
@@ -536,9 +563,14 @@
             <div class="movies-slide carousel-nav-center owl-carousel">
                 <!-- MOVIE ITEM -->
                 <% locals.horror_dt.forEach(function(mv){%>
-                    <% var link = '/watch/' + mv.id %>
-                <a href='<%=link%>' class="movie-item">
+                    <% var link = 'https://fsapi.xyz/tmdb-movie/' + mv.id %>
+                <a href='<%=link%>' target="_blank" class="movie-item">
+                    <%if(mv.poster_path == null){%>
+                    
+                        <%var img ="./images/No_image_small.jpg" %>
+                        <% } else{ %>
                     <% var img = 'https://www.themoviedb.org/t/p/w220_and_h330_face/'+ mv.poster_path%>
+                    <%}%>
 
                     <img src='<%=img%>' alt="">
                     <div class="movie-item-content">
@@ -584,7 +616,12 @@
                 <% locals.popular_tv_dt.forEach(function(mv){%>
                     <% var link = '/watch/' + mv.id %>
                 <a href='<%=link%>' class="movie-item">
+                    <%if(mv.poster_path == null){%>
+                    
+                        <%var img ="./images/No_image_small.jpg" %>
+                        <% } else{ %>
                     <% var img = 'https://www.themoviedb.org/t/p/w220_and_h330_face/'+ mv.poster_path%>
+                    <%}%>
 
                     <img src='<%=img%>' alt="">
                     <div class="movie-item-content">
@@ -614,6 +651,14 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
 
 
     <!-- SPECIAL MOVIE SECTION -->
@@ -648,7 +693,7 @@
                     </div>
                     <div class="item-action">
                         <% var link = '/watch/'+ locals.bn5_dt.id%>
-                        <a href='<5=link%>' class="btn btn-hover">
+                        <a href='<%=link%>' class="btn btn-hover">
                             <i class="bx bxs-right-arrow"></i>
                             <span>Watch now</span>
                         </a>
@@ -666,7 +711,7 @@
     <!-- END PRICING SECTION -->
 
     <!-- FOOTER SECTION -->
-    <footer class="section">
+    <footer class="section ft ft-dark">
         <div class="container">
             <div class="row">
                 <div class="col-4 col-md-6 col-sm-12">
@@ -675,7 +720,7 @@
                             <i class='bx bx-movie-play bx-tada main-color'></i>Fl<span class="main-color">i</span>x
                         </a>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et. Dolores, quibusdam?
+                            ᶠˡᶦˣᵀⱽ primarily keeps track of TV shows and movies you watch. With  ᶠˡᶦˣᵀⱽ it is easy to find where to watch movies and TV shows on hundreds of streaming sources such as Disney + Hotstar, Netflix, Amazon, Hulu, and Voot.
                         </p>
                         <div class="social-list">
                             <a href="#" class="social-item">
@@ -694,12 +739,12 @@
                     <div class="row">
                         <div class="col-3 col-md-6 col-sm-6">
                             <div class="content">
-                                <p><b>Flix</b></p>
+                                <p><b>Quick Links</b></p>
                                 <ul class="footer-menu">
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">My profile</a></li>
-                                    <li><a href="#">Pricing plans</a></li>
-                                    <li><a href="#">Contacts</a></li>
+                                    <li><a href="#">TMDB</a></li>
+                                    <li><a href="#">Trailers</a></li>
+                                    <li><a href="#">Search</a></li>
+                                    <li><a href="#">Contact US</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -707,10 +752,10 @@
                             <div class="content">
                                 <p><b>Browse</b></p>
                                 <ul class="footer-menu">
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">My profile</a></li>
-                                    <li><a href="#">Pricing plans</a></li>
-                                    <li><a href="#">Contacts</a></li>
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Adventure</a></li>
+                                    <li><a href="#">Tv Shows</a></li>
+                                    <li><a href="#">Upcoming</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -719,8 +764,8 @@
                                 <p><b>Help</b></p>
                                 <ul class="footer-menu">
                                     <li><a href="#">About us</a></li>
-                                    <li><a href="#">My profile</a></li>
-                                    <li><a href="#">Pricing plans</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms of services</a></li>
                                     <li><a href="#">Contacts</a></li>
                                 </ul>
                             </div>
@@ -739,6 +784,9 @@
                                             <img src="./images/app-store.png" alt="">
                                         </a>
                                     </li>
+
+
+
                                 </ul>
                             </div>
                         </div>
@@ -755,7 +803,21 @@
             agent-sidd</a>
     </div>
     <!-- END COPYRIGHT SECTION -->
-
+  <div class="overlay-search   ">
+    <div class="close-btn" onclick="close_search()">
+        <i class="fas fa-times"></i>
+    </div>
+      <div class="overlay-search-content">
+         
+      <form action="/search" class=" animate__animated animate__pulse "  id="myform" name="myform"  onsubmit=" return validate();" method="GET">
+      <input type="text" placeholder="Type here ....." name="q">
+      <button type="submit">
+        <i class="bx bx-search" style="font-size:25px; color: white;"></i>
+      </button>
+      
+    </form>
+  </div>
+</div>
     <!-- SCRIPT -->
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -763,7 +825,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
     <!-- APP SCRIPT -->
     <script src="./script/index.js"></script>
+ <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
 
+ 
 </body>
 
 </html>

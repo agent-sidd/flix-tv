@@ -31,6 +31,9 @@ $(document).ready(() => {
             500: {
                 items: 3
             },
+            770:{
+                items:4
+            },
             1280: {
                 items: 5
             },
@@ -66,4 +69,16 @@ $(document).ready(() => {
             }
         }
     })
+})
+
+var close_search = document.getElementsByClassName('close-btn') 
+
+var open_search = document.getElementsByClassName('full-page-srch')
+var search_model = document.getElementsByClassName('overlay-search')
+search_model[0].style.display="none"
+close_search[0].addEventListener('click',function(){
+search_model[0].style.display="none"
+})
+open_search[0].addEventListener('click',function(){
+    search_model[0].style.display="flex"  
 })

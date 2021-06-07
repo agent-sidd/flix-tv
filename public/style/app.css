@@ -1,9 +1,9 @@
 :root {
     --main-color: #c0392b;
+    /*--main-color: #ffda00;*/
     --body-bg: #181616;
     --box-bg: #221f1f;
     --text-color: #ffffff;
-
     --nav-height: 60px;
     --space-top: 30px;
 }
@@ -12,6 +12,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 
 html {
@@ -19,6 +20,7 @@ html {
 }
 
 body {
+    background-color: var(--body-bg);
     font-family: "Cairo", sans-serif;
     background-color: var(--body-bg);
     color: var(--text-color);

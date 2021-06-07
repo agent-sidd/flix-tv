@@ -102,7 +102,29 @@ app.get('/',function(req,res){
  
    //res.render('home.ejs')
 })
-
+app.get('/search',function(req,res){
+ var q = req.query.q; 
+ console.log(q)
+ var url_qyery ="https://api.themoviedb.org/3/search/multi?api_key="+ key + "&query="+ q + "&page=1&include_adult=true";
+ axios.get(url_qyery)
+ .then(function (response) {
+  var data=response.data.results;
+  var dt =response.data
+    console.log(data);
+  if(dt.total_results==0){
+     var success = 0;
+   }
+else{
+      var success = 1;
+      
+      
+      
+ }  
+ console.log(success)
+ console.log(dt) 
+ res.render('category.ejs',{data:data,success:success,q:q})
+}).catch(error => console.error(error))
+})
 app.listen(PORT,()=>{
     console.log(`stream started at ${'http://localhost:3000'}`);
 });

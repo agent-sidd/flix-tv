@@ -1,0 +1,146 @@
+.owl-next{
+    height: 100%;
+    width:60px;
+    /*background:linear-gradient(to right,transparent 10%,black ) !important;*/
+    background: linear-gradient(-90deg,#000000 30%,rgba(0, 0, 0, 0.7) 60%,rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0) ) !important;
+    right: 0px !important ;
+    display: none !important;
+}
+.owl-prev{
+    height: 100%;
+    width: 60px;
+    /*background:linear-gradient(to right,transparent 10%,black ) !important;*/
+    background: linear-gradient(90deg,#000000 30%,rgba(0, 0, 0, 0.7) 60%,rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0) ) !important;
+    left: 0px !important ;
+    display: none !important;
+}
+
+#lightmode{
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    height: 40px;
+    width: 40px;
+    background: white;
+    border-radius: 20px;
+    color: black;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20pt;
+    position: fixed;
+    z-index: 9999;
+}
+.bxs-sun,.bxs-moon{
+   font-size: 28px; 
+}
+#darkmode{
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    height: 40px;
+    width: 40px;
+    background: black;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20pt;
+    z-index: 9999;
+    
+}
+.white{
+    color: white !important;
+}
+.black{
+    color: black !important;
+}
+.dark{
+    background: #000010;
+}
+.light{
+    background: white;
+}
+.ft-dark{
+   background:  #221f1f !important;
+}
+.ft-light{
+background: white !important;
+}
+.full-page-srch{
+    width: 40px;
+    height: 40px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+  padding: 0px 0px 0px 9px;
+}
+.bx-search{
+    line-height: 40px;
+    font-size: 22px;
+color: white;
+}
+.overlay-search{
+    width: 100%;
+    height: 100%;
+    background:rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.overlay-search-content{
+ width: 80%;
+ display: flex;
+ justify-content: space-between;
+ border-bottom: 2px solid white;
+}
+form{
+    width: 100%;
+    display: flex;
+ justify-content: space-between;
+ border-bottom: 2px solid white;
+}
+.overlay-search-content input[type=text]{
+   color: rgba(229, 226, 226, 1);
+   font-size: 28px;
+   background: transparent;
+   border: none;
+   width: calc(100% - 80px);
+}
+.overlay-search button[type=submit]{
+    background:transparent;
+    border: none;
+}
+.close-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.fa-times{
+    color: white;
+    font-size: 24px;
+}
+.overlay-search-content input[type=text]:hover, .overlay-search-content input[type=text]:active, .overlay-search-content input[type=text]:focus,.overlay-search button[type=submit]:hover,.overlay-search button[type=submit]:focus,.overlay-search button[type=submit]:active{
+   outline: none;
+   border: none;
+}
+@media only screen and (max-width: 400px) {
+    .overlay-search-content input[type=text]{
+        color: rgba(229, 226, 226, 1);
+        font-size: 23px;
+        background: transparent;
+        border: none;
+        width: calc(100% - 50px);
+     }
+     .overlay-search-content{
+         width: 90%;
+     }
+}
+.owl-carousel:hover .owl-next{
+    display: block !important;
+}
+.owl-carousel:hover .owl-prev{
+    display: block !important ;
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Flix
+    </title>
+    <link rel = "icon" href =  "./images/logo.png" type = "image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./style/grid.css">
+    <link rel="stylesheet" href="./style/app.css">
+    <link rel="stylesheet" href="./style/owl.css">
+    <link rel="stylesheet" href="./style/category.css">
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <div class="nav-wrapper">
+        <div class="container">
+            <div class="nav">
+                <a href="#" class="logo">
+                    <i class='bx bx-movie-play bx-tada main-color'></i>Fl<span class="main-color">i</span>x
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Genre</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Series</a></li>
+                    <li><a href="#">About</a></li>
+                    <li>
+                        <a href="#" class="btn full-page-srch">
+                            <i class='bx bx-search'></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- MOBILE MENU TOGGLE -->
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <div class="hamburger"></div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="section container ">
+        <div class="cat-nm">
+            <h1 style=" font-weight: 900;">&nbsp;&nbsp;&nbsp;<%=locals.q%></h1>
+            <p style="font-weight: 300;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Search</p>
+        </div>
+        <%if(locals.success==0) {%>
+          <div class="noresults">
+              <h1 style="text-align: center;">No Results for Search Term</h1>
+              <h2 style="text-align: center;"><%=locals.q%></h2>
+              <p style="text-align: center;">Try with different one </p>
+          </div>
+            <%} else {%>
+        <div class="box-conatiner conatiner row ">
+            <% locals.data.forEach(function(mv){%>
+                <% var link = '/watch/' + mv.id %>
+        <div class="card-wrapper col-lg-2 col-md-3 col-sm-4 col-6 mb-3">
+        <a href="<%=link%> " class="movie-item movieItem ">
+            <%if(mv.poster_path == null){%>
+                    
+                <%var img ="./images/No_image_small.jpg" %>
+                <% } else{ %>
+            <% var img = 'https://www.themoviedb.org/t/p/w220_and_h330_face/'+ mv.poster_path%>
+            <%}%>
+
+            <img src="<%=img%>" alt="">
+            <div class="movie-item-content">
+
+                <div class="movie-item-title">
+                    <%=mv.original_title%>
+                </div>
+                <div class="movie-infos">
+                    <div class="movie-info">
+                        <i class="bx bxs-star"></i>
+                        <span><%=mv.vote_average%> </span>
+                    </div>
+                    <div class="movie-info">
+                        <i class="bx bxs-captions"></i>
+                        <span> <%=mv.original_language %></span>
+                    </div>
+                    <div class="movie-info">
+                        <span>HD</span>
+                    </div>
+                    <div class="movie-info">
+                        <span>16+</span>
+                    </div>
+                </div>
+            </div>
+            
+        </a>
+        <div class="card-cat">
+            <%if(mv.media_type == 'movie'){%>
+            <span class="mv">MV</span>
+            <%} else {%>
+                <span class="tv"> TV</span>
+                <%}%>
+        </div>
+    </div>  
+    <%})%>
+</div>
+<%}%>
+</div>
+
+    <!-- FOOTER SECTION -->
+    <footer class="section ft ft-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-md-6 col-sm-12">
+                    <div class="content">
+                        <a href="#" class="logo">
+                            <i class='bx bx-movie-play bx-tada main-color'></i>Fl<span class="main-color">i</span>x
+                        </a>
+                        <p>
+                            ᶠˡᶦˣᵀⱽ primarily keeps track of TV shows and movies you watch. With  ᶠˡᶦˣᵀⱽ it is easy to find where to watch movies and TV shows on hundreds of streaming sources such as Disney + Hotstar, Netflix, Amazon, Hulu, and Voot.
+                        </p>
+                        <div class="social-list">
+                            <a href="#" class="social-item">
+                                <i class="bx bxl-facebook"></i>
+                            </a>
+                            <a href="#" class="social-item">
+                                <i class="bx bxl-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/agent_sidd/" target="_blank" class="social-item">
+                                <i class="bx bxl-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-md-6 col-sm-12">
+                    <div class="row">
+                        <div class="col-3 col-md-6 col-sm-6">
+                            <div class="content">
+                                <p><b>Quick Links</b></p>
+                                <ul class="footer-menu">
+                                    <li><a href="#">TMDB</a></li>
+                                    <li><a href="#">Trailers</a></li>
+                                    <li><a href="#">Search</a></li>
+                                    <li><a href="#">Contact US</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-6 col-sm-6">
+                            <div class="content">
+                                <p><b>Browse</b></p>
+                                <ul class="footer-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Adventure</a></li>
+                                    <li><a href="#">Tv Shows</a></li>
+                                    <li><a href="#">Upcoming</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-6 col-sm-6">
+                            <div class="content">
+                                <p><b>Help</b></p>
+                                <ul class="footer-menu">
+                                    <li><a href="#">About us</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms of services</a></li>
+                                    <li><a href="#">Contacts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-6 col-sm-6">
+                            <div class="content">
+                                <p><b>Download app</b></p>
+                                <ul class="footer-menu">
+                                    <li>
+                                        <a href="#">
+                                            <img src="./images/google-play.png" alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="./images/app-store.png" alt="">
+                                        </a>
+                                    </li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER SECTION -->
+
+    <!-- COPYRIGHT SECTION -->
+    <div class="copyright">
+        Copyright 2021 <a href="https://www.instagram.com/agent_sidd/" target="_blank">
+            agent-sidd</a>
+    </div>
+    <!-- END COPYRIGHT SECTION -->
+  <div class="overlay-search   ">
+    <div class="close-btn" onclick="close_search()">
+        <i class="fas fa-times"></i>
+    </div>
+      <div class="overlay-search-content">
+         
+      <form action="/search" class=" animate__animated animate__pulse " method="GET">
+      <input type="text" placeholder="Type here .....">
+      <button type="submit">
+        <i class="bx bx-search" style="font-size:25px; color: white;"></i>
+      </button>
+      
+    </form>
+  </div>
+</div>
+    <!-- SCRIPT -->
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- OWL CAROUSEL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+    <!-- APP SCRIPT -->
+    <script src="./script/index.js"></script>
+ <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+
+ 
+</body>
+
+</html>
