@@ -1,0 +1,29 @@
+ul.drop-menu{
+    list-style-type: none !important;
+}
+.drop-menu{
+    position: absolute !important;
+    margin-top: 0px !important;
+    background-color: rgba(0, 0, 0,0.9);
+    display: none !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding: 15px;
+}
+.drop-menu>li{
+    margin:4px 20px 4px 30px !important;
+    
+}
+.genre:hover .drop-menu {
+display: flex !important;
+}
+.genre{
+    font-weight: 700;
+    color: white;
+}
+.drop-menu{
+
+}
+.drop-menu>li>a{
+    font-weight: 700;
+}

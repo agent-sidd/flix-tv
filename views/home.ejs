@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="./style/grid.css">
     <link rel="stylesheet" href="./style/app.css">
     <link rel="stylesheet" href="./style/owl.css">
+    <link rel="stylesheet" href="./style/dropdown.css">
 </head>
 
 <body>
@@ -50,11 +51,45 @@
                 <a href="/" class="logo">
                     <i class='bx bx-movie-play bx-tada main-color'></i>Fl<span class="main-color">i</span>x
                 </a>
-                <ul class="nav-menu" id="nav-menu">
+                <ul class="nav-menu nav-lists" id="nav-menu">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Genre</a></li>
-                    <li><a href="#">Movies</a></li>
-                    <li><a href="#">Series</a></li>
+                    <li class="genre">GENRE &nbsp;<i class="fas fa-angle-down"></i>
+                      <ul class="drop-menu">
+                          <li><a href="/genre/Action">Action</a></li>
+                          <li><a href="/genre/Adventure">Adventure</a></li>
+                          <li><a href="/genre/Comedy">Comedy</a></li>
+                          <li><a href="/genre/Crime">Crime</a></li>
+                          <li><a href="/genre/Drama">Drama</a></li>
+                          <li><a href="/genre/Family">Family</a></li>
+                          <li><a href="/genre/Fantsy">Fantsy</a></li>
+                          <li><a href="/genre/Horror">Horror</a></li>
+                          <li><a href="/genre/Music">Music</a></li>
+                          <li><a href="/genre/Rommance">Rommance</a></li>
+                          <li><a href="/genre/War">War</a></li>
+                          <li><a href="/genre/Thriller">Thriller</a></li>
+                          <li><a href="/genre/War">Science</a></li>
+                          
+                      </ul>
+                    </li>
+                
+                    <li class="genre">MOVIES &nbsp;<i class="fas fa-angle-down"></i>
+                        <ul class="drop-menu">
+                            <li><a href="/movies/trending">Trending</a></li>
+                            <li><a href="/movies/popular">Popular</a></li>
+                            <li><a href="/movies/top_rated">Top Rated</a></li>
+                            <li><a href="/Movies/now_playing">Now Playing</a></li>
+                            <li><a href="/movies/upcoming">Upcoming</a></li>
+                        </ul>
+                    </li>
+                    <li class="genre">TV&nbsp;<i class="fas fa-angle-down"></i>
+                        <ul class="drop-menu">
+                            <li><a href="/tv/trending">Trending</a></li>
+                            <li><a href="/tv/popular">Popular</a></li>
+                            <li><a href="/tv/top_rated">Top Rated</a></li>
+                            <li><a href="/tv/now_playing">Now Playing</a></li>
+                            <li><a href="/tv/upcoming">Upcoming</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#">About</a></li>
                     <li>
                         <a href="#" class="btn full-page-srch">
@@ -735,7 +770,7 @@
     <footer class="section ft ft-dark">
         <div class="container">
             <div class="row">
-                <div class="col-4 col-md-6 col-sm-12">
+                <div class="clm-4 clm-md-6 clm-sm-12">
                     <div class="content">
                         <a href="/" class="logo">
                             <i class='bx bx-movie-play bx-tada main-color'></i>Fl<span class="main-color">i</span>x
@@ -756,9 +791,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-8 col-md-6 col-sm-12">
+                <div class="clm-8 clm-md-6 clm-sm-12">
                     <div class="row">
-                        <div class="col-3 col-md-6 col-sm-6">
+                        <div class="clm-3 clm-md-6 clm-sm-6">
                             <div class="content">
                                 <p><b>Quick Links</b></p>
                                 <ul class="footer-menu">
@@ -769,7 +804,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-3 col-md-6 col-sm-6">
+                        <div class="clm-3 clm-md-6 clm-sm-6">
                             <div class="content">
                                 <p><b>Browse</b></p>
                                 <ul class="footer-menu">
@@ -780,7 +815,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-3 col-md-6 col-sm-6">
+                        <div class="clm-3 clm-md-6 clm-sm-6">
                             <div class="content">
                                 <p><b>Help</b></p>
                                 <ul class="footer-menu">
@@ -791,7 +826,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-3 col-md-6 col-sm-6">
+                        <div class="clm-3 clm-md-6 clm-sm-6">
                             <div class="content">
                                 <p><b>Download app</b></p>
                                 <ul class="footer-menu">
