@@ -45,6 +45,9 @@
 .cat-sec{
  width: calc(100% - 40px);
  margin: 0 auto;
+ margin-top: 0px;
+ padding-top:0px !important;
+
 
 }
 .box-conatiner{
