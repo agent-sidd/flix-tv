@@ -89,6 +89,7 @@ color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 .overlay-search-content{
  width: 80%;
