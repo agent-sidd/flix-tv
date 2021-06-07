@@ -38,11 +38,17 @@
 .card-cat>span.tv{
   color: white;
   font-size: 12px;
+
   font-weight: 700;
   padding: 5px;
 }
+.cat-sec{
+ width: calc(100% - 40px);
+ margin: 0 auto;
+
+}
 .box-conatiner{
-  width: 98% !important;
+  width: 100% !important;
   margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -59,4 +65,11 @@ line-height: 0px;
 }
 .mb-3{
   margin-bottom:3em !important;
+}
+
+@media only screen and (max-width: 500px) {
+  .cat-sec{
+    width: 100% !important;
+    margin: 0 auto;
+  }
 }
