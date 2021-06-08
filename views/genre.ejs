@@ -82,7 +82,7 @@
                             <li><a href="/movies/trending?page=1">Trending</a></li>
                             <li><a href="/movies/popular?page=1">Popular</a></li>
                             <li><a href="/movies/top_rated?page=1">Top Rated</a></li>
-                            <li><a href="/Movies/now_playing?page=1">Now Playing</a></li>
+                            <li><a href="/movies/now_playing?page=1">Now Playing</a></li>
                             <li><a href="/movies/upcoming?page=1">Upcoming</a></li>
                         </ul>
                     </li>
@@ -126,7 +126,7 @@
             <%} else {%>
         <div class="box-conatiner row ">
             <% locals.data.forEach(function(mv){%>
-                <% var link = '/watch/' + mv.id %>
+                <% var link = '/details/mv?id=' + mv.id %>
         <div class="card-wrapper clm-lg-2 clm-md-3 clm-sm-4 clm-6 mb-3">
         <a href="<%=link%> " class="movie-item movieItem ">
             <%if(mv.poster_path == null){%>

@@ -31,7 +31,11 @@
     <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="/script/fontawesome.js"></script>
@@ -110,8 +114,8 @@
 
     <div class="section  cat-sec">
         <div class="cat-nm">
-            <h1 style=" font-weight: 900;"> <%=locals.q%></h1>
-            <p style="font-weight: 300;">Search</p>
+            <h1 style=" font-weight: 900;"><%=locals.cat%></h1>
+            <p style="font-weight: 300;">Movies</p>
         </div>
         <%if(locals.success==0) {%>
           <div class="noresults">
@@ -122,11 +126,7 @@
             <%} else {%>
         <div class="box-conatiner row ">
             <% locals.data.forEach(function(mv){%>
-                <%if(mv.media_type == 'movie'){%>
-                    <% var link = '/details/mv?id=' + mv.id %>
-                    <%} else {%>
-                <% var link = '/details/tv?id=' + mv.id %>
-                <%}%>
+                <% var link = '/details/mv?id=' + mv.id %>
         <div class="card-wrapper clm-lg-2 clm-md-3 clm-sm-4 clm-6 mb-3">
         <a href="<%=link%> " class="movie-item movieItem ">
             <%if(mv.poster_path == null){%>
@@ -141,7 +141,6 @@
 
                 <div class="movie-item-title">
                     <%=mv.original_title%>
-                    <%=mv.original_name%>
                 </div>
                 <div class="movie-infos">
                     <div class="movie-info">
@@ -160,15 +159,15 @@
                     </div>
                 </div>
             </div>
-            <div class="card-cat">
-                <%if(mv.media_type == 'movie'){%>
-                <span class="mv">MV</span>
-                <%} else {%>
-                    <span class="tv"> TV</span>
-                    <%}%>
-            </div>
+            
         </a>
-        
+        <div class="card-cat">
+            <%if(mv.media_type == 'movie'){%>
+            <span class="mv">MV</span>
+            <%} else {%>
+                <span class="tv"> TV</span>
+                <%}%>
+        </div>
     </div>  
     <%})%>
 </div>
@@ -182,9 +181,8 @@
         prev
         </a>
     <%} else {%>
-      
         <%var pg_prev = parseInt(locals.pg) - 1 %>
-        <% link = "/search/?q="+ locals.q+ "&page=" + pg_prev  %>
+        <% link = "/genre/"+ locals.q+"?page=" + pg_prev  %>
         <a href="<%=link%>" class="prev-pg-btn link-enabled"><i class="fas fa-arrow-left"></i> prev
         </a>
         <%}%>
@@ -193,7 +191,7 @@
             </a>
         <%} else {%>
             <%var pg_next = parseInt(locals.pg) + 1 %>
-            <% link = "/search/?q="+ locals.q+ "&page="+ pg_next %>
+            <% link = "/genre/"+ locals.q+"?page=" + pg_next %>
             <a href="<%=link%>" class="next-pg-btn link-enabled">next<i class="fas fa-arrow-right"></i>
             </a>
             <%}%>
@@ -298,7 +296,7 @@
       <div class="overlay-search-content">
         <form action="/search" class=" "  id="myform" name="myform"  onsubmit=" return validate();" method="GET" autocomplete="off">
             <input type="text" placeholder="Type here ....." name="q">
-            <input type="text" style="display: none; visibility: hidden;"  name="page" value="1" >
+            <input type="number" style="display: none; visibility: hidden;"  name="page" value="1" >
             <button type="submit">
               <i class="bx bx-search" style="font-size:25px; color: white;"></i>
             </button>
