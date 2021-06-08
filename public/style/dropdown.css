@@ -21,9 +21,6 @@ display: flex !important;
     font-weight: 700;
     color: white;
 }
-.drop-menu{
-
-}
 .drop-menu>li>a{
     font-weight: 700;
 }

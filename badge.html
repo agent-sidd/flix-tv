@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>.card-cat{
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        top: 0;
+        right:14px ;
+        background:#c0392b;
+        padding: 2px 2px 2px 4px;
+    }
+    .card-cat {
+        position: absolute;
+        height: 24px;
+        background-color: #c0392b;
+        
+        ;
+        width: 24px;
+        padding: 0 0 0 0;
+        border-radius: 0px;
+      }
+      .card-cat::before{
+        content: "";
+        position: absolute;
+        top: 14px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 12px;
+        border-color: transparent #c0392b transparent #c0392b;
+        border-radius: 5px;
+      }
+    .card-cat>span.mv{
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 3px;
+    }
+    .card-cat>span.tv{
+      color: white ;
+      font-size: 12px;
+    
+      font-weight: 700;
+      padding: 5px;
+    }</style>
+</head>
+<body>
+    
+    <div class="card-cat">
+            
+        <span class="mv">MV</span>
+        
+    </div>
+</body>
+</html>

@@ -104,13 +104,15 @@ app.get('/',function(req,res){
 })
 app.get('/search',function(req,res){
  var q = req.query.q; 
+ var pg =req.query.page;
  console.log(q)
- var url_qyery ="https://api.themoviedb.org/3/search/multi?api_key="+ key + "&query="+ q + "&page=1&include_adult=true";
+ var url_qyery ="https://api.themoviedb.org/3/search/multi?api_key="+ key + "&query="+ q + "&page="+pg+"&include_adult=true";
  axios.get(url_qyery)
  .then(function (response) {
   var data=response.data.results;
   var dt =response.data
-    console.log(data);
+   
+    var total_pg= dt.total_pages;
   if(dt.total_results==0){
      var success = 0;
    }
@@ -120,11 +122,71 @@ else{
       
       
  }  
- console.log(success)
- console.log(dt) 
- res.render('category.ejs',{data:data,success:success,q:q})
+ 
+ console.log(url_qyery) 
+ res.render('category.ejs',{data:data,success:success,q:q,pg:pg,total_pg:total_pg})
 }).catch(error => console.error(error))
 })
+
+
+app.get('/genre/:cat',function(req,res){
+  var   q = req.params.cat;
+   var pg =req.query.page;
+  var cat = {
+  "Action":"28",
+  "Adventure":"12",
+  "Comedy":"35",
+  "Crime":"80",
+  "Drama":"18",
+  "Family":"10751",
+  "Fantasy":"14",
+  "Horror":"27",
+  "Music":"10402",
+  "Rommance":"10749",
+  "War":"10752",
+  "Thriller":"53",
+  "Sceince":"878"
+  };
+
+  var genre_id = 0;
+  for (cat_nm in cat ){
+    if(cat_nm == q){
+       genre_id = cat[cat_nm];
+    }
+  }
+  if(genre_id == 0){
+     res.render('error.ejs')
+  }
+  else{
+    
+    var url  = "https://api.themoviedb.org/3/discover/movie?api_key="+key + "&with_genres="+genre_id+"&page="+ pg;
+   console.log(url)
+    axios.get(url)
+    .then(function (response) {
+     var data=response.data.results;
+     var dt =response.data
+      total_pg = dt.total_pages
+     if(dt.total_results==0){
+        var success = 0;
+      }
+   else{
+         var success = 1;
+         
+         
+         
+    }  
+  
+    res.render('genre.ejs',{data:data,success:success,q:q,pg:pg,total_pg:total_pg})
+   }).catch(error => console.error(error))
+  }
+  
+})
+/*app.get('/dq/:aq',function(req,res){
+  var aq = req.params.aq;
+  var sq = req.query;
+  console.log(aq)
+  console.log(sq)
+})*/
 app.listen(PORT,()=>{
     console.log(`stream started at ${'http://localhost:3000'}`);
 });
