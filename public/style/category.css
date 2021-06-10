@@ -114,9 +114,9 @@ line-height: 0px;
 
 
 /*details-page*/
-.details-sec{
+/*.details-sec{
   margin-top: 40px;
-}
+}*/
 .details-overlay{
   width: 100%;
   height: 100%;
@@ -338,7 +338,7 @@ font-size: 1.8em;
   padding: 0.3em 0.7em;
 }
 .details-info{
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 }
