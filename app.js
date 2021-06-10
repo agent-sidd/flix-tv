@@ -6,6 +6,7 @@ var axios = require('axios');
 var ejs = require('ejs');
 var url = require('url');
 const fs = require('fs');
+const ColorThief =require('colorthief')
 const bodyParser = require("body-parser");
 const { query, response } = require('express');
 const querystring = require('querystring');
@@ -116,7 +117,7 @@ app.get('/',function(req,res){
   var latest_series = 'https://api.themoviedb.org/3/tv/popular?api_key='+key+'&page=1';
   var myst = 'https://api.themoviedb.org/3/discover/movie/?api_key='+key+'&with_genres=9648&page=1';
   var horror = 'https://api.themoviedb.org/3/discover/movie/?api_key='+key+'&with_genres=27&page=1';
-  console.log(anime)
+  console.log(trending)
   var bn1 = axios.get(bn1);
   var bn2 = axios.get(bn2); 
   var bn3 = axios.get(bn3); 
@@ -151,7 +152,7 @@ app.get('/',function(req,res){
     if(bn1_dt){
       status=1;
     }
-   console.log(anime_dt)
+   
     res.render('home.ejs',{status:status,bn1_dt:bn1_dt,bn2_dt:bn2_dt,bn3_dt:bn3_dt,bn4_dt:bn4_dt,trending_dt:trending_dt,popular_dt:popular_dt,anime_dt:anime_dt, scifi_dt:scifi_dt,action_dt:action_dt,comedy_dt:comedy_dt,popular_tv_dt:popular_tv_dt,myst_dt:myst_dt,horror_dt:horror_dt,bn5_dt})
   }))
  
@@ -331,10 +332,70 @@ app.get('/tv/:cat',function(req,res){
     res.redirect('/page-not-found');
   
    }
+
 })
 
+app.get('/details/:media',function(req,res){
+ var media_type = req.params.media;
+  var id = req.query.id;
+  if(media_type == "mv"){
+  var url = "https://api.themoviedb.org/3/movie/"+ id + "?api_key=" + key + "&append_to_response=videos,credits";
+  var providers = "https://api.themoviedb.org/3/movie/"+ id + "/watch/providers?api_key=" + key ; 
+  var recmmondation = "https://api.themoviedb.org/3/movie/"+ id + "/recommendations?api_key=" + key ; 
+}
+  else if(media_type == "tv"){ 
+  var url = "https://api.themoviedb.org/3/tv/"+ id + "?api_key=" + key + "&append_to_response=videos,credits";
+  var providers = "https://api.themoviedb.org/3/tv/"+ id + "/watch/providers?api_key=" + key ; 
+  var recmmondation = "https://api.themoviedb.org/3/tv/"+ id + "/recommendations?api_key=" + key ; 
+}
+  else {
+    res.redirect('/page-not-found')
+  }
+ 
+  var client_info ="https://ipapi.co/json/";
+  var link  =axios.get(url)
+  var provider =axios.get(providers)
+  var recmnd =axios.get(recmmondation)
+  var client =axios.get(client_info)
+  axios.all([link,provider,recmnd,client]).then(axios.spread((...responses) => {
+  var media_info = responses[0].data;
+  var provider_info =responses[1].data.results;
+  var recmnd_info  =responses[2].data.results;
+  var client_info =responses[3].data.country;
+  if(recmnd_info){
+    var success =1;
+  }
+  else{
+   var success = 0
+  }
+ var dominantColor = 0 ;
+  async function getDominantColor() {
+    //var imge = "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/" + media_info.backdrop_path;
+    var imge = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/" + media_info.poster_path;
+      const img = imge;
+      const dominantColor = await ColorThief.getColor(img);
+      //console.log(dominantColor);
+      return dominantColor;
+  }
+  
+  getDominantColor().then(response=>{
+    console.log(response);
+    var clr = response;
+    var r = clr[0];
+    var g = clr[1];
+    var b = clr[2];
+    var col1 = 'rgba('+ r + ','+ g +','+ b +',1)'
+    var col2 = 'rgba('+ r + ','+ g +','+ b + ',0.84)'   
+    var  gradient = "linear-gradient(to right, "  + col1 +"150px," + col2 + " 100%)";
+    console.log(gradient);
+    console.log(recmnd)
+    res.render('details.ejs',{media_info:media_info,provider_info:provider_info,recmnd_info:recmnd_info,client_info:client_info,success:success,col1:col1,gradient:gradient,media_type:media_type})
+  });
+}))
+})
+app.get('/page-not-found',function(req,res){
 
-
+})
 app.get("*",function(req,res){
   var p = req.params;
   if(p){

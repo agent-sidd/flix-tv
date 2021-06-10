@@ -285,7 +285,12 @@
             <div class="owl-carousel" id="top-movies-slide">
                 <!-- MOVIE ITEM -->
                 <% locals.trending_dt.forEach(function(mv){%>
-                    <% var link = '/details/mv?id=' + mv.id %>
+                    
+                        <%if(mv.media_type == 'movie'){%>
+                            <% var link = '/details/mv?id=' + mv.id %>
+                            <%} else {%>
+                        <% var link = '/details/tv?id=' + mv.id %>
+                        <%}%>
                 <a href='<%=link%>' class="movie-item">
                     <% var img = 'https://www.themoviedb.org/t/p/w220_and_h330_face/'+ mv.poster_path%>
 
@@ -293,6 +298,7 @@
                     <div class="movie-item-content">
                         <div class="movie-item-title">
                             <%=mv.original_title%>
+                            <%=mv.original_name%>
                         </div>
                         <div class="movie-infos">
                             <div class="movie-info">

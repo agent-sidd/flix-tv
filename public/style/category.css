@@ -1,4 +1,7 @@
-
+a{
+  text-decoration: none !important;
+  text-decoration-style: none  !important;
+}
 .card-cat {
     position: absolute;
     height: 24px;
@@ -13,7 +16,6 @@
     content: "";
     position: absolute;
     top: 14px;
-    
     width: 0;
     height: 0;
     border-style: solid;
@@ -109,9 +111,234 @@ line-height: 0px;
   font-size: 15px !important;
 
 }
+
+
+/*details-page*/
+.details-sec{
+  margin-top: 40px;
+}
+.details-overlay{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap
+
+}
+.details-img-wrapper{
+  display: inline-flex;
+  flex-direction: column;
+  
+}
+.details-img-wrapper>img{
+  border-top-left-radius:12px !important;
+  border-top-right-radius:12px !important;
+  
+
+}
+.btm-radius{
+  border-bottom-left-radius:12px !important;
+  border-bottom-right-radius:12px !important;
+}
+.poster-sec{
+  padding-top:50px ;
+  padding-bottom: 50px;
+}
+.watch-provider{
+  background-color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px 10px 10px ;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+ 
+}
+.watch-logo{
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+}
+.watch-text>h4{
+font-size: 18px;
+color: rgb(255, 255, 255,0.7);
+font-weight: 600;
+}
+.watch-text>h6{
+  line-height: 8px;
+  font-size: 15px;
+color: rgb(255, 255, 255,0.7);
+font-weight: 600;
+}
+.details-info{
+  padding: 50px 20px 50px 20px;
+  
+}
+.details-info>.dt-mv-title>h2{
+  color: white;
+  font-size: 2em;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.dim-color{
+  color: white;
+  opacity: 0.7;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.super{
+ vertical-align:super;
+font-size: medium;
+color: #c0392b;
+font-weight: bold;
+  font-size: 25px;
+}
+.super-star{
+  color: white;
+  font-size: larger;
+}
+
+.dt-mv-facts{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.dt-mv-facts-left{
+  display: flex;
+  flex-direction: column;
+  
+}
+.dt-mv-fact-right{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.dt-mv-genre-hdr,.dt-mv-overview-hdr{
+  font-size: 2em;
+  font-weight: bold;
+}
+.dt-mv-genre-main{
+  display: flex;
+  justify-content: space-between;
+}
+.dt-mv-genre-main>a{
+  letter-spacing: .1em;
+  color: rgba(255, 255, 255,0.8);
+  font-size: .8em;
+  font-weight: bold;
+  padding: .2em .4em;
+  border-radius:40px;
+  border: 2px solid white;
+}
+.dt-mv-genre-main>a:hover{
+  background: white;
+  color: black;
+}
+.dt-mv-actios{
+  display: flex;
+  justify-content: space-between;
+}
+.dt-action-btn{
+  letter-spacing: .1em;
+  color: rgba(0, 0, 0, 0.8);
+  background: white;
+  font-size: 1em;
+  font-weight: bold;
+  padding: .3em 1em;
+  border-radius:40px;
+  border: 2px solid white;
+  cursor: pointer;
+}
+.dt-action-btn>.fas{
+  font-size:medium;
+  color: black;
+  padding: .2em;
+}
+.dt-action-btn:hover{
+  color: white;
+  background: transparent;
+}
+.dt-action-btn:hover>.fas{
+  color: rgb(255, 255, 255);
+}
+.btn-disabled{
+  pointer-events: none;
+  opacity: 0.8;
+}
+.credit-poster{
+  display: flex;
+  flex-direction: column;
+  background:#221f1f !important;
+  border-radius:12px !important;
+ 
+ 
+}
+.credit-poster>img{
+  height: 170px !important;
+  border-top-left-radius:12px !important;
+  border-top-right-radius:12px !important;
+}
+
+.credit-details{
+  height: 50px;
+  padding: 5px 0px 55px 0px;
+  border-bottom-left-radius:12px !important;
+  border-bottom-right-radius:12px !important;
+  background: #221f1f;
+}
+.credit-details>h5{
+  text-align: center;
+}
+
+
+
 @media only screen and (max-width: 500px) {
   .cat-sec{
     width: 100% !important;
     margin: 0 auto;
   }
+}
+@media only screen and (max-width: 640px) {
+  .credit-poster>img{
+    height: 140px !important;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .credit-poster>img{
+    height: 120px !important;
+  }
+}
+@media only screen and (max-width: 850px) {
+.poster-sec{
+  display: flex !important;
+  justify-content: center !important;
+}
+}
+
+@media only screen and (max-width: 650px){
+  .details-info>.dt-mv-title>h2{
+    font-size: 1.8em;
+}
+.dt-runtime{
+ font-size: 1.2em;
+}
+.vote{
+  font-size: 1.8em;
+}
+.dt-mv-genre-hdr,.dt-mv-overview-hdr{
+font-size: 1.8em;
+}
+.dt-mv-overview>h5{
+  font-size: 1em;
+}
+.dt-action-btn>.fas{
+  font-size: small;
+}
+.dt-action-btn{
+  padding: 0.3em 0.7em;
+}
+.details-info{
+  padding-left: 4px;
+  padding-right: 4px;
+}
 }

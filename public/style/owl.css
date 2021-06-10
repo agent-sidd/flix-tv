@@ -127,6 +127,12 @@ form{
    outline: none;
    border: none;
 }
+@media only screen and (max-width: 800px) {
+    .owl-next,.owl-prev{
+        width: 40px;
+
+    }
+}
 @media only screen and (max-width: 400px) {
     .overlay-search-content input[type=text]{
         color: rgba(229, 226, 226, 1);
@@ -138,10 +144,12 @@ form{
      .overlay-search-content{
          width: 90%;
      }
+    
 }
 .owl-carousel:hover .owl-next{
     display: block !important;
 }
 .owl-carousel:hover .owl-prev{
     display: block !important ;
+    
 }
