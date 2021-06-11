@@ -370,11 +370,11 @@ app.get('/details/:media',function(req,res){
   }
  var dominantColor = 0 ;
   async function getDominantColor() {
-    //var imge = "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/" + media_info.backdrop_path;
+   
     var imge = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/" + media_info.poster_path;
       const img = imge;
       const dominantColor = await ColorThief.getColor(img);
-      //console.log(dominantColor);
+      
       return dominantColor;
   }
   

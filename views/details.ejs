@@ -194,7 +194,7 @@
                         <%locals.media_info.genres.forEach(function(gnr){%>
                             <% var gnrlink = "/genre/"+ gnr.name %>
                             <% var  gnrname = gnr.name %>
-                            <a class="button" href="<%= gnrlink %>"><%= gnrname %></a>
+                            <a class="button" href="#"><%= gnrname %></a>
                         <%})%>
                        </div>
                     </div>
@@ -212,7 +212,118 @@
                     <a href="#"  class="dt-action-btn btn-disabled" target="_blank"> Website &nbsp;<i class="fas fa-link"></i></a>
                     <%}%>
                     
-                     <a href="" class="dt-action-btn"> Trailer &nbsp;<i class="fas fa-play"></i></a>
+                     <a href="#" class="dt-action-btn open-mdl"> Trailer &nbsp;<i class="fas fa-play"></i></a>
+                   
+                     <%if(locals.media_info.imdb_id){%>   
+                     <%var link = "https://www.imdb.com/title/"+ locals.media_info.imdb_id%>
+                     <a href="<%=link%>" class="dt-action-btn" target="_blank"> Imdb &nbsp;<i class="fab fa-imdb"></i></a>
+                     <%}%>
+                   </div>
+                </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    <%} else {%>
+     
+        <% var backdrop_photu="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/" +media_info.backdrop_path%>
+        <div class=" details-sec"
+            style="background: url('<%=backdrop_photu%>'); background-position: right -200px top; background-size: cover;">
+
+            <div class="details-overlay" style="background:<%=locals.gradient%>">
+                <div class="poster-sec clm-lg-4 clm-md-4 clm-sm-12 clm-12">
+                    <div class="details-img-wrapper">
+                        <% var img='https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' +
+                            locals.media_info.poster_path %>
+                            <img class="pst-img" src="<%=img%>" alt="">
+                            <%if(locals.provider_info.IN){%>
+                            <% if(locals.provider_info.IN.flatrate){%>
+                                    <% var name=locals.provider_info.IN.flatrate[0].provider_name %>
+                                    <% var watch_logo="https://www.themoviedb.org/t/p/original/"
+                                    +locals.provider_info.IN.flatrate[0].logo_path %>
+                                    <%var say ="Streaming on"%>
+                            <% } else if(locals.provider_info.IN.rent){%>
+                                    <% var name=locals.provider_info.IN.rent[0].provider_name %>
+                                    <% var watch_logo="https://www.themoviedb.org/t/p/original/"
+                                    +locals.provider_info.IN.rent[0].logo_path %>
+                                    <%var say ="Rent from"%>
+                            <%} else if(locals.provider_info.IN.buy) {%>
+                                    <% var name=locals.provider_info.IN.buy[0].provider_name %>
+                                    <% var watch_logo="https://www.themoviedb.org/t/p/original/"
+                                    +locals.provider_info.IN.buy[0].logo_path %>
+                                    <%var say = "Buy from"%>
+                            <%}%>
+                                <div class="watch-provider">
+                                            <img class="watch-logo" src='<%=watch_logo%>' alt="">
+                                            &nbsp;
+                                            &nbsp;
+                                            <div class="watch-text">
+                                                <h4><%=say%></h4>
+                                                <h6>
+                                                    <%=name%>
+                                                </h6>
+                                            </div>
+
+                                </div>
+                                <%}%>
+                               
+                    </div>
+                </div>
+                <div class="details-info clm-lg-8 clm-md-8  clm-sm-12 clm-12">
+                    <div class="dt-mv-title">
+                        <h2>
+                            <%=locals.media_info.original_name%> <%=locals.media_info.original_title%><span class="dt-release-year dim-color">(<%=locals.media_info.first_air_date.substring(0,4)%>)</span>
+                        </h2>
+                        <i class=" dim-color">
+                        <%= locals.media_info.tagline%>
+                        </i>
+                    </div>
+                    <br>
+                    <div class="dt-mv-facts">
+                       <div class="dt-mv-fact-left">
+                        <div class="dt-vote-avg">
+                           <h1 class="vote"><%= locals.media_info.vote_average %> <i class="fas fa-star super"></i> </h1> 
+                           <% var vote_details  = locals.media_info.vote_average + " out  of " + locals.media_info.vote_count + " count " %>
+                           <p><%= vote_details %></p>
+                        </div>
+                       </div>
+                    <div class="dt-mv-fact-right">
+                        <h4 class="dt-runtime">
+                            <%=locals.media_info.spoken_languages[0].name + " . "+ locals.media_info.episode_run_time+"mins" %>
+                        </h4>
+                        <h6 class="dt-release-date">
+                            <%= "Release date: "+locals.media_info.first_air_date%>
+                        </h6>
+                    </div>
+                    </div>
+                    <br>
+                    <div class="dt-mv-genre">
+                        <h4 class="dt-mv-genre-hdr">Genres</h4>
+                        <div class="dt-mv-genre-main">
+                        <%locals.media_info.genres.forEach(function(gnr){%>
+                            <% var gnrlink = "/genre/"+ gnr.name %>
+                            <% var  gnrname = gnr.name %>
+                            <a class="button" href="#"><%= gnrname %></a>
+                        <%})%>
+                       </div>
+                    </div>
+                    <br><br>
+                    <div class="dt-mv-overview">
+                        <h4 class="dt-mv-overview-hdr">Overview</h4>
+                        <h5><%=locals.media_info.overview%></h5>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="dt-mv-actios">
+                    <%if(locals.media_info.homepage){%>             
+                     <a href="<%=locals.media_info.homepage%>" class="dt-action-btn" target="_blank"> Website &nbsp;<i class="fas fa-link"></i></a>
+                    <%} else {%>
+                    <a href="#"  class="dt-action-btn btn-disabled" target="_blank"> Website &nbsp;<i class="fas fa-link"></i></a>
+                    <%}%>
+                    
+                     <a href="#" class="dt-action-btn open-mdl"> Trailer &nbsp;<i class="fas fa-play"></i></a>
                      
                      <%if(locals.media_info.imdb_id){%>   
                      <%var link = "https://www.imdb.com/title/"+ locals.media_info.imdb_id%>
@@ -225,8 +336,7 @@
                 </div>
             </div>
         </div>
-    <%} else {%>
-     
+
      <%}%>
       <br><br>
        <div class="section">
@@ -255,7 +365,6 @@
        </div>
         <br>
         <div class="section">
-            
                 <div class="section-header">
                     Recommendations
                 </div>
@@ -303,7 +412,22 @@
                     <!-- END MOVIE ITEM -->
                 </div>
             </div>
-       
+       <div class="trailer-model">
+           <div class="trailer-model-inner ">
+               <div class="iframe-wrap-container">
+                   <div class="close-model-wrap">
+                <i class="fas fa-times close-model"></i>
+            </div>
+            <% var trailer_link  = "" %>
+            <%locals.media_info.videos.results.forEach(function(trlr){%>
+                <%if(trlr.type == "Trailer" && trlr.site == "YouTube"){%>
+               <% trailer_link = 'https://www.youtube.com/embed/'+ trlr.key + '?autoplay=1&cc_load_policy=1&controls=1&disablekb=0&enablejsapi=0&fs=1&iv_load_policy=1&loop=0&rel=0&showinfo=1&start=0&wmode=transparent&theme=dark" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'%>
+           <%}%> 
+           <%})%>
+                <iframe width="560" height="315" src="<%=trailer_link%>" allowfullscreen></iframe>
+           </div>
+           </div>
+       </div>
 
         <!-- FOOTER SECTION -->
         <!-- END FOOTER SECTION -->

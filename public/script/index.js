@@ -164,7 +164,6 @@ $('.credit-carousel').owlCarousel({
 
 
 var close_search = document.getElementsByClassName('close-btn') 
-
 var open_search = document.getElementsByClassName('full-page-srch')
 var search_model = document.getElementsByClassName('overlay-search')
 search_model[0].style.display="none"
@@ -179,3 +178,12 @@ var pst_img = document.getElementsByClassName('pst-img')
 if(!wp[0]){
 pst_img[0].classList.add('btm-radius')
 }
+var open_mdl = document.getElementsByClassName('open-mdl');
+var close_mdl = document.getElementsByClassName('close-model');
+var mdl =document.getElementsByClassName('trailer-model')
+open_mdl[0].addEventListener('click',function(){
+   mdl[0].style.display="block"
+})
+close_mdl[0].addEventListener('click',function(){
+    mdl[0].style.display="none"
+ })
