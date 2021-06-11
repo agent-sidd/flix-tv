@@ -101,7 +101,7 @@ app.get('/',function(req,res){
    do{
     var r5 = Math.floor(Math.random()*(max-min) + min);
    }  while(r5==r4 && r5==r2 && r5==r1 && r5==r3)
-   console.log(r1 + " " + r2 + "  " + r3 + " " + r4)
+   
 
   var bn1 = 'https://api.themoviedb.org/3/movie/'+ arr[r1] +'?api_key='+key+'&append_to_response=recommendations,videos,credits&page=1';
   var bn2 = 'https://api.themoviedb.org/3/movie/'+ arr[r2] +'?api_key='+key+'&append_to_response=recommendations,videos,credits&page=1';
@@ -161,7 +161,7 @@ app.get('/',function(req,res){
 app.get('/search',function(req,res){
  var q = req.query.q; 
  var pg =req.query.page;
- console.log(q)
+
  var url_qyery ="https://api.themoviedb.org/3/search/multi?api_key="+ key + "&query="+ q + "&page="+pg+"&include_adult=false";
  axios.get(url_qyery)
  .then(function (response) {
@@ -178,8 +178,6 @@ else{
       
       
  }  
- 
- console.log(url_qyery) 
  res.render('category.ejs',{data:data,success:success,q:q,pg:pg,total_pg:total_pg})
 }).catch(error => console.error(error))
 })
@@ -201,7 +199,7 @@ app.get('/genre/:cat',function(req,res){
   "Rommance":"10749",
   "War":"10752",
   "Thriller":"53",
-  "Sceince":"878"
+  "Science":"878"
   };
 
   var genre_id = 0;
@@ -211,11 +209,10 @@ app.get('/genre/:cat',function(req,res){
     }
   }
   if(genre_id == 0){
-     res.render('error.ejs')
+    res.redirect('/page-not-found')
   }
   else{
     var url  = "https://api.themoviedb.org/3/discover/movie?api_key="+key + "&with_genres="+genre_id+"&page="+ pg;
-   console.log(url)
     axios.get(url)
     .then(function (response) {
      var data=response.data.results;
@@ -234,10 +231,8 @@ app.get('/genre/:cat',function(req,res){
   
 })
 app.get('/movies/:cat',function(req,res){
-  console.log("enterd")
   var q = req.params.cat;
   var pg = req.query.page;
-  console.log(q)
   if(q == "trending" || q == "top_rated" || q == "popular" || q == "now_playing" || q == "upcoming"){
      if(q=="trending"){
       var url  = "https://api.themoviedb.org/3/trending/movies/week?api_key=" +key + "&page="+ pg;
@@ -245,7 +240,6 @@ app.get('/movies/:cat',function(req,res){
      else{
     var url  = "https://api.themoviedb.org/3/movie/" + q + "?api_key=" +key + "&page="+ pg;
      }
-    console.log(url)
      axios.get(url)
      .then(function (response) {
       var data=response.data.results;
@@ -272,7 +266,6 @@ app.get('/movies/:cat',function(req,res){
     else if(q== "now_playing"){
     var cat = "Now Playing";
    }
-   console.log(cat)
      res.render('movies.ejs',{data:data,success:success,cat:cat,pg:pg,total_pg:total_pg})
     }).catch(error => console.error(error))
   }
@@ -285,10 +278,8 @@ app.get('/movies/:cat',function(req,res){
 
 
 app.get('/tv/:cat',function(req,res){
-  console.log("enterd")
   var q = req.params.cat;
   var pg = req.query.page;
-  console.log(q)
   if(q == "trending" || q == "top_rated" || q == "popular" || q == "now_playing" || q == "upcoming"){
      if(q=="trending"){
       var url  = "https://api.themoviedb.org/3/trending/tv/week?api_key=" +key + "&page="+ pg;
@@ -296,7 +287,6 @@ app.get('/tv/:cat',function(req,res){
      else{
     var url  = "https://api.themoviedb.org/3/tv/" + q + "?api_key=" +key + "&page="+ pg;
      }
-    console.log(url)
      axios.get(url)
      .then(function (response) {
       var data=response.data.results;
@@ -323,7 +313,6 @@ app.get('/tv/:cat',function(req,res){
     else if(q== "now_playing"){
     var cat = "Now Playing";
    }
-   console.log(cat)
      res.render('tv.ejs',{data:data,success:success,cat:cat,pg:pg,total_pg:total_pg})
     }).catch(error => console.error(error))
   }
@@ -379,7 +368,6 @@ app.get('/details/:media',function(req,res){
   }
   
   getDominantColor().then(response=>{
-    console.log(response);
     var clr = response;
     var r = clr[0];
     var g = clr[1];
@@ -387,20 +375,15 @@ app.get('/details/:media',function(req,res){
     var col1 = 'rgba('+ r + ','+ g +','+ b +',1)'
     var col2 = 'rgba('+ r + ','+ g +','+ b + ',0.84)'   
     var  gradient = "linear-gradient(to right, "  + col1 +"150px," + col2 + " 100%)";
-    console.log(gradient);
-    console.log(recmnd)
     res.render('details.ejs',{media_info:media_info,provider_info:provider_info,recmnd_info:recmnd_info,client_info:client_info,success:success,col1:col1,gradient:gradient,media_type:media_type})
   });
 }))
 })
 app.get('/page-not-found',function(req,res){
-
+  res.render('no_page.ejs')
 })
 app.get("*",function(req,res){
-  var p = req.params;
-  if(p){
-    console.log('page-not-found');
-  }
+  res.redirect("/page-not-found")
 })
 app.listen(PORT,()=>{
     console.log(`stream started at ${'http://localhost:3000'}`);
