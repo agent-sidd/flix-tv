@@ -656,4 +656,18 @@ footer .content {
     flex-direction: column;
     align-items: stretch;
 }
+@media only screen and (max-width: 550px) {
+    .item-content-title{
+        font-size: 1.5em;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .item-content-title{
+        font-size: 1.3em;
+    }
+    .item-content-description{
+        font-size: 0.9em;
+    }
+}
+
 
