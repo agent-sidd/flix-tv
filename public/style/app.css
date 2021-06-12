@@ -14,6 +14,15 @@
     box-sizing: border-box;
     
 }
+a{
+    text-decoration: none !important;
+    text-decoration-style: none !important;
+    color: white;
+}
+a:hover{
+    text-decoration: none  !important;
+    color: white;
+}
 
 html {
     font-size: 16px;
@@ -670,4 +679,8 @@ footer .content {
     }
 }
 
+/*copyright*/
+.copyright>a:hover{
+ color: var(--main-color) !important;
+}
 

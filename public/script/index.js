@@ -165,11 +165,19 @@ $('.credit-carousel').owlCarousel({
 
 var close_search = document.getElementsByClassName('close-btn') 
 var open_search = document.getElementsByClassName('full-page-srch')
+var search = document.getElementsByClassName('srch')
 var search_model = document.getElementsByClassName('overlay-search')
 search_model[0].style.display="none"
 close_search[0].addEventListener('click',function(){
 search_model[0].style.display="none"
 })
+open_search[0].addEventListener('click',function(){
+    search_model[0].style.display="flex"  
+})
+search[0].addEventListener('click',function(){
+    search_model[0].style.display="flex"  
+})
+
 open_search[0].addEventListener('click',function(){
     search_model[0].style.display="flex"  
 })
@@ -187,3 +195,5 @@ open_mdl[0].addEventListener('click',function(){
 close_mdl[0].addEventListener('click',function(){
     mdl[0].style.display="none"
  })
+ var title = document.getElementsByClassName('title-title')[0].textContent;
+document.title = title;

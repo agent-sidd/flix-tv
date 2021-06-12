@@ -11,7 +11,7 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="">
     <title>
-        Flix
+        Flix-Tv.com - Discover Movies
     </title>
     <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
@@ -55,6 +55,7 @@
             <div class="nav">
                 <a href="/" class="logo">
                     <i class='bx bx-movie-play bx-tada main-color'></i>Fl<span class="main-color">i</span>x
+                    <sup class="main-color" style="font-size: .5em; font-weight: 400;">TV</sup>
                 </a>
                 <ul class="nav-menu nav-lists" id="nav-menu">
                     <li><a href="/">Home</a></li>
@@ -88,11 +89,9 @@
                     </li>
                     <li class="genre">TV&nbsp;<i class="fas fa-angle-down"></i>
                         <ul class="drop-menu">
-                            <li><a href="/tv/trending?page=1">Trending</a></li>
+                            <li><a href="/tv/latest?page=1">Trending</a></li>
                             <li><a href="/tv/popular?page=1">Popular</a></li>
                             <li><a href="/tv/top_rated?page=1">Top Rated</a></li>
-                            <li><a href="/tv/now_playing?page=1">Now Playing</a></li>
-                            <li><a href="/tv/upcoming?page=1">Upcoming</a></li>
                         </ul>
                     </li>
                     <li><a href="#">About</a></li>
@@ -141,6 +140,7 @@
 
                 <div class="movie-item-title">
                     <%=mv.original_title%>
+                    <%=mv.original_name%>
                 </div>
                 <div class="movie-infos">
                     <div class="movie-info">
@@ -229,32 +229,32 @@
                             <div class="content">
                                 <p><b>Quick Links</b></p>
                                 <ul class="footer-menu">
-                                    <li><a href="#">TMDB</a></li>
-                                    <li><a href="#">Trailers</a></li>
-                                    <li><a href="#">Search</a></li>
-                                    <li><a href="#">Contact US</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="clm-3 clm-md-6 clm-sm-6">
-                            <div class="content">
-                                <p><b>Browse</b></p>
-                                <ul class="footer-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Adventure</a></li>
-                                    <li><a href="#">Tv Shows</a></li>
-                                    <li><a href="#">Upcoming</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="clm-3 clm-md-6 clm-sm-6">
-                            <div class="content">
-                                <p><b>Help</b></p>
-                                <ul class="footer-menu">
+                                    <li><a href="https://themoviedb.org/" target="_blank">TMDB</a></li>
                                     <li><a href="#">About us</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Terms of services</a></li>
-                                    <li><a href="#">Contacts</a></li>
+                                    <li><a href="#" class="srch">Search</a></li>
+                                    <li><a href="https://www.instagram.com/agent_sidd/" target="_blank">Contact US</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clm-3 clm-md-6 clm-sm-6">
+                            <div class="content">
+                                <p><b>Browse Movies</b></p>
+                                <ul class="footer-menu">
+                                    <li><a href="/genre/Action?page=1">Action</a></li>
+                                    <li><a href="/genre/Adventure?page=1">Adventure</a></li>
+                                    <li><a href="/tv/popular??page=1">Tv Shows</a></li>
+                                    <li><a href="/mv/upcoming?page=1">Upcoming</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clm-3 clm-md-6 clm-sm-6">
+                            <div class="content">
+                                <p><b>Browse TV</b></p>
+                                <ul class="footer-menu">
+                                    <li><a href="/tv/popular?page=1">Popular</a></li>
+                                    <li><a href="/tv/top_rated?page=1">Top rated</a></li>
+                                    <li><a href="/tv/latest?page=1">Latest</a></li>
+                                    <li><a href="/tv/latest?page=1">Trending</a></li>
                                 </ul>
                             </div>
                         </div>
