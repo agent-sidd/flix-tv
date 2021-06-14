@@ -345,12 +345,17 @@
      <%if(locals.media_type == 'mv'){%>
         <br>
         <br>
+        <div class="section">
+            <div class="section-header">
+             Watch
+            </div>
         <div class="iframe-wrap-container">
          <% var link = "https://fsapi.xyz/tmdb-movie/" +locals.media_info.id%>
          <iframe  width="516" height="316"  src="<%=link%>" frameborder="0" scrolling="no" allowfullscreen="allowfullscreen"/>
          </iframe>
         </div>
          <%}%>
+         </div>
          <br>
        <br>
        <div class="section">
