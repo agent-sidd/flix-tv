@@ -184,7 +184,7 @@
         </a>
     <%} else {%>
         <%var pg_prev = parseInt(locals.pg) - 1 %>
-        <% link = "/genre/"+ locals.q+"?page=" + pg_prev  %>
+        <% link = "/tv/"+ locals.q+"?page=" + pg_prev  %>
         <a href="<%=link%>" class="prev-pg-btn link-enabled"><i class="fas fa-arrow-left"></i> prev
         </a>
         <%}%>
@@ -193,7 +193,7 @@
             </a>
         <%} else {%>
             <%var pg_next = parseInt(locals.pg) + 1 %>
-            <% link = "/genre/"+ locals.q+"?page=" + pg_next %>
+            <% link = "/tv/"+ locals.q+"?page=" + pg_next %>
             <a href="<%=link%>" class="next-pg-btn link-enabled">next<i class="fas fa-arrow-right"></i>
             </a>
             <%}%>

@@ -183,7 +183,7 @@
                        </div>
                     <div class="dt-mv-fact-right">
                         <h4 class="dt-runtime">
-                            <%=locals.media_info.spoken_languages[0].name + " . "+ locals.media_info.runtime+"mins" %>
+                            <%=locals.media_info.spoken_languages[0].english_name + " . "+ locals.media_info.runtime+"mins" %>
                         </h4>
                         <h6 class="dt-release-date">
                             <%= "Release date: "+locals.media_info.release_date%>
@@ -228,9 +228,7 @@
                 </div>
             </div>
         </div>
-
-    <%} else {%>
-     
+    <%} else {%>  
         <% var backdrop_photu="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/" +media_info.backdrop_path%>
         <div class=" details-sec"
             style="background: url('<%=backdrop_photu%>'); background-position: right -200px top; background-size: cover;">
@@ -294,7 +292,7 @@
                        </div>
                     <div class="dt-mv-fact-right">
                         <h4 class="dt-runtime">
-                            <%=locals.media_info.spoken_languages[0].name + " . "+ locals.media_info.episode_run_time+"mins" %>
+                            <%=locals.media_info.spoken_languages[0].english_name + " . "+ locals.media_info.episode_run_time+"mins" %>
                         </h4>
                         <h6 class="dt-release-date">
                             <%= "Release date: "+locals.media_info.first_air_date%>
@@ -334,12 +332,9 @@
                      <%}%>
                    </div>
                 </div>
-
-
                 </div>
             </div>
-        </div>
-
+            
      <%}%>
      
      <%if(locals.media_type == 'mv'){%>
@@ -354,10 +349,11 @@
          <iframe  width="516" height="316"  src="<%=link%>" frameborder="0" scrolling="no" allowfullscreen="allowfullscreen"/>
          </iframe>
         </div>
-         <%}%>
+         
          </div>
-         <br>
-       <br>
+        <br>
+        <br>
+        <%}%>
        <div class="section">
         <div class="section-header">
             Cast

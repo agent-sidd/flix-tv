@@ -280,6 +280,7 @@ app.get('/movies/:cat',function(req,res){
 app.get('/tv/:cat',function(req,res){
   var q = req.params.cat;
   var pg = req.query.page;
+
   if(q == "trending" || q == "top_rated" || q == "popular" || q == "now_playing" || q == "upcoming"){
      if(q=="trending"){
       var url  = "https://api.themoviedb.org/3/trending/tv/week?api_key=" +key + "&page="+ pg;
@@ -313,7 +314,7 @@ app.get('/tv/:cat',function(req,res){
     else if(q== "now_playing"){
     var cat = "Now Playing";
    }
-     res.render('tv.ejs',{data:data,success:success,cat:cat,pg:pg,total_pg:total_pg})
+     res.render('tv.ejs',{data:data,success:success,q:q,pg:pg,total_pg:total_pg})
     }).catch(error => console.error(error))
   }
   else{
@@ -337,10 +338,11 @@ app.get('/details/:media',function(req,res){
   var providers = "https://api.themoviedb.org/3/tv/"+ id + "/watch/providers?api_key=" + key ; 
   var recmmondation = "https://api.themoviedb.org/3/tv/"+ id + "/recommendations?api_key=" + key ; 
 }
+
   else {
     res.redirect('/page-not-found')
   }
- 
+  console.log(url);
   var client_info ="https://ipapi.co/json/";
   var link  =axios.get(url)
   var provider =axios.get(providers)
