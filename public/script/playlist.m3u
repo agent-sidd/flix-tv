@@ -1,0 +1,82 @@
+#EXTM3U
+#EXTINF:-1,Discovery HD (Bangla)
+https://idvd.multitvsolution.in/idvo/discoveryhd.m3u8
+#EXTINF:-1,Discovery (Bangla)
+https://idvd.multitvsolution.in/idvo/discoverybengali.m3u8
+#EXTINF:-1,Discovery (Bangla)CCNTV
+https://ccntv.anytv.live/discovery/index.m3u8
+#EXTINF:-1,Discovery (Bangla)
+http://otv.ftpbd.net/streams/121/index.m3u8
+#EXTINF:-1,Discovery (English)
+https://idvd.multitvsolution.in/idvo/discoveryeng.m3u8
+#EXTINF:-1,Discovery (Hinde)
+https://idvd.multitvsolution.in/idvo/discoveryhindi.m3u8
+#EXTINF:-1,Discovery Science (English)
+https://idvd.multitvsolution.in/idvo/discoverscienceeng.m3u8
+#EXTINF:-1,Discovery Science (Hindi)
+https://idvd.multitvsolution.in/idvo/discoversciencehindi.m3u8
+#EXTINF:-1,Discovery ID (English)
+https://idvd.multitvsolution.in/idvo/investigationdiscovery.m3u8
+#EXTINF:-1,Discovery Turbo (Hindi)
+https://idvd.multitvsolution.in/idvo/turboeng.m3u8
+#EXTINF:-1,Animal Planet (Hindi)
+https://idvd.multitvsolution.in/idvo/aphdhindi.m3u8
+#EXTINF:-1,TLC HD
+https://idvd.multitvsolution.in/idvo/tlchd.m3u8
+#EXTINF:-1,TLC HD (Hindi)
+https://idvd.multitvsolution.in/idvo/tlchdhindi.m3u8
+#EXTINF:-1,TLC (English)
+https://idvd.multitvsolution.in/idvo/tlceng.m3u8
+#EXTINF:-1,BBC Earth
+https://livecdn.fptplay.net/qnetlive/bbcearth_hls.smil/chunklist.m3u8
+#EXTINF:-1,Discovery Kids (Hindi)
+https://idvd.multitvsolution.in/idvo/discoverykidshindi.m3u8
+#EXTINF:-1,HBO Hits
+https://liveorigin01.hbogoasia.com:8443/origin/live/main/HITS/index.m3u8
+#EXTINF:-1,MNX
+https://timesnow.airtel.tv/live/MNX_pull/master.m3u8
+#EXTINF:-1,Movies Now
+https://timesnow.airtel.tv/live/MN_pull/master.m3u8
+#EXTINF:-1,Romedy Now
+https://timesnow.airtel.tv/live/RN_pull/master.m3u8
+#EXTINF:-1,Warner TV
+https://www.livedoomovies.com/02_WarnerTVHD_720p/chunklist.m3u8
+#EXTINF:-1,Star World (UAE)
+http://digitalxpress.gcdn.co/live1/OSNSTARWORLD/index.m3u8
+#EXTINF:-1,Kadak Hits
+https://live.hungama.com/linear/kadak-hits/chunklist.m3u8
+#EXTINF:-1,DIL SE
+https://live.hungama.com/linear/dil-se/chunklist.m3u8
+#EXTINF:-1,Bol Hadippa
+https://live.hungama.com/linear/bol-hadippa/chunklist.m3u8
+#EXTINF:-1,Zoom
+https://ccntv.anytv.live/zoom/index.m3u8
+#EXTINF:-1,Zing
+https://y5w8j4a9.ssl.hwcdn.net/zing/tracks-v1a1/playlist.m3u8
+#EXTINF:-1,B4U Music
+http://103.199.161.254/Content/b4umusic/Live/Channel(B4Umusic)/index.m3u8
+#EXTINF:-1,Music India
+https://m-c01-j2apps.s.llnwi.net/hls_hd/0204.MusicIndia.in.m3u8
+#EXTINF:-1,Music India
+http://103.199.160.85/Content/musicindia/Live/Channel(MusicIndia)/Stream(02)/index.m3u8
+
+#EXTINF:-1,9xM
+https://m-c01-j2apps.s.llnwi.net/live_hd/0306.9XM.in.m3u8
+#EXTINF:-1,9X Jalwa
+https://m-c01-j2apps.s.llnwi.net/live/0781.9XJalwa.in_480p/index.m3u8
+#EXTINF:-1,E24
+https://load.airtelxstream.in/e24/smil:common.smil/manifest.m3u8
+#EXTINF:-1,NDTV 24/7
+https://ndtv24x7elemarchana.akamaized.net/hls/live/2003678/ndtv24x7/ndtv24x7master.m3u8
+#EXTINF:-1,NDTV News
+http://103.141.66.36/bpk-tv/10305/default/index.m3u8
+#EXTINF:-1,NDTV Profit
+https://ndtv.live-s.cdn.bitgravity.com/cdn-live/_definst_/ndtv/live/ndtv_profit.smil/chunklist_w1438770647_b256000.m3u8
+#EXTINF:-1,Zee News
+https://load.airtelxstream.in/zeenews/smil:common.smil/chunklist.m3u8
+#EXTINF:-1,ABP News
+https://abp-i.akamaihd.net/hls/live/765529/abphindi/master_720.m3u8
+#EXTINF:-1,Aaj Tak
+https://aajtaklive-amd.akamaized.net:443/hls/live/2014416/aajtak/aajtaklive/aajtak_1/chunklist.m3u8
+#EXTINF:-1,India News
+https://live-indiatvnews.akamaized.net/indiatv-origin/liveabr/indiatv-origin/live2/chunks.m3u8

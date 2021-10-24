@@ -1,8 +1,8 @@
 {
-  "name": "webflix",
-  "version": "1.0.0",
-  "description": "Tmdb clone",
-  "main": "app.js",
+  "name": "flixtv",
+  "version": "1.0.1",
+  "description": "Flix-tv app gets data from TMDB and renders in a user friendly UI.",
+  "main": "index.js",
   "dependencies": {
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
@@ -13,8 +13,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start":"node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "agent-sidd",
   "license": "ISC"
